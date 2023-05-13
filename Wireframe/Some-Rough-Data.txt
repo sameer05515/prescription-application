@@ -1,0 +1,8 @@
+-------------------
+My-Weakness-Removal-Tracker
+Premendra Kumar
+premendra.bce05515@gmail.com
+
+This tracker is for tracking my weakness, identifying its root-cause and its remedy. Also there should be one page where I can daily track my progress.
+
+----------------------
