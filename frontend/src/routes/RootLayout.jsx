@@ -1,12 +1,15 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate  } from 'react-router-dom';
 import List from '../components/prescription/List'
-import Navbar from '../components/header/Navbar'
+import Navbar from '../components/header/Navbar';
+import * as URLs from '../components/shared/URLs';
 
 function RootLayout() {
 
-    const showNewForm = () => {
+    const navigate = useNavigate();
 
+    const showNewForm = () => {
+        navigate(URLs.NEW_PRESCRIPTION);
     }
 
     return (

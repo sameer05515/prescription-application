@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { prescActions } from '../../store/prescription-slice';
+import { useNavigate } from 'react-router-dom';
+import * as URLs from '../shared/URLs';
 
 function Add() {
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const [prescription, setPrescription] = useState({
     prescriptionTitle: "",
@@ -19,7 +23,8 @@ function Add() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(prescActions.addItem(prescription))
+    dispatch(prescActions.addItem(prescription));
+    navigate(URLs.HOME);
     //addContact(contactInfo);
     //setContactInfo({ name: "", email: "", phonenumber: "",details:"",stage:"" });
   };

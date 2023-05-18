@@ -6,6 +6,7 @@ import RootLayout from './routes/RootLayout';
 import Edit from './components/prescription/Edit';
 import Delete from './components/prescription/Delete';
 import Add from './components/prescription/Add';
+import NotFound from './components/shared/NotFound';
 
 
 const router= createBrowserRouter([
@@ -19,7 +20,8 @@ const router= createBrowserRouter([
       {path:'/edit', element: <Edit/> },
       {path:'/delete', element: <Delete/> }
     ]
-  }
+  },
+  {path:'*', element:<NotFound/>}
 ]);
 
 
