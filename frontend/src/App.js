@@ -14,23 +14,23 @@ import ViewEditToggleExample from './components/shared/hoc/ViewEditToggleExample
 import CollapseExpandExample from './components/shared/hoc/CollapseExpandExample';
 
 
-const router= createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootLayout/>,
-    children:[
-      {path:'', element: <div><p>Please select any item.</p></div>},
-      {path:'/new', element: <Add/> },
-      {path:'/view', element: <Show/> },
-      {path:'/edit', element: <Edit/> },
-      {path:'/delete', element: <Delete/> }
+    element: <RootLayout />,
+    children: [
+      { path: '', element: <div><p>Please select any item.</p></div> },
+      { path: '/new', element: <Add /> },
+      { path: '/view', element: <Show /> },
+      { path: '/edit', element: <Edit /> },
+      { path: '/delete', element: <Delete /> }
     ]
   },
-  {path:'*', element:<NotFound/>}
+  { path: '*', element: <NotFound /> }
 ]);
 
 
-function App() { 
+function App() {
 
   const [title, setTitle] = useState('My first post');
   const list = [
@@ -40,30 +40,32 @@ function App() {
 
   // const title= 'My first post';
 
-  const handleChange = (event)=>{
+  const handleChange = (event) => {
     setTitle(event.target.value);
     console.log(event.target.value);
     console.log(title);
   }
 
-  const postToggle=()=>{
+  const postToggle = () => {
     console.log('Toggle done')
   }
 
   return (
     <>
-    <RouterProvider router={router}/>  
-    <br/>
-    <ViewEditToggleExample title={title} 
-    onChangeHandler={(e)=>handleChange(e)} 
-    postToggleCallbackHandler={postToggle}/>
-    <br/>
-    <CollapseExpandExample list={list} />
-    <br/>
+      <RouterProvider router={router} />
+      <br />
+      <ViewEditToggleExample
+        title={title}
+        onChangeHandler={(e) => handleChange(e)}
+        postToggleCallbackHandler={postToggle}
+        initialToggleStatus={true} />
+      <br />
+      <CollapseExpandExample list={list} />
+      <br />
 
-    {/* <input type="text" value={title} onChange={(e)=>handleChange(e)}/> */}
+      {/* <input type="text" value={title} onChange={(e)=>handleChange(e)}/> */}
     </>
-      
+
   );
 }
 

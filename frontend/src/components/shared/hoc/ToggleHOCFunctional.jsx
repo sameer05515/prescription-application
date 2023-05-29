@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 const withToggle = (PassedComponent) => (props) =>{
-  const [toggleStatus, setToggleStatus]= useState(false);
+  const { initialToggleStatus, ...rest } = props;
+  const [toggleStatus, setToggleStatus]= useState(initialToggleStatus);
 
   const toggle= (postToggle)=>{
     setToggleStatus(!toggleStatus);
@@ -10,7 +11,7 @@ const withToggle = (PassedComponent) => (props) =>{
 
   return (
     <PassedComponent
-      {...props}
+      {...rest}
       toggle={toggle}
       toggleStatus={toggleStatus}
     />
