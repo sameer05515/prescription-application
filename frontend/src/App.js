@@ -7,6 +7,11 @@ import Edit from './components/prescription/Edit';
 import Delete from './components/prescription/Delete';
 import Add from './components/prescription/Add';
 import NotFound from './components/shared/NotFound';
+// import ViewEditToggleExample from './components/shared/ViewEditToggleExample';
+// import CollapseExpandExample from './components/shared/hoc/CollapseExpandExample';
+import { useState } from 'react';
+import ViewEditToggleExample from './components/shared/hoc/ViewEditToggleExample';
+import CollapseExpandExample from './components/shared/hoc/CollapseExpandExample';
 
 
 const router= createBrowserRouter([
@@ -25,9 +30,34 @@ const router= createBrowserRouter([
 ]);
 
 
-function App() {    
+function App() { 
+
+  const [title, setTitle] = useState('My first post');
+  const list = [
+    { id: 1, name: 'Eggs' },
+    { id: 2, name: 'Bread' },
+  ];
+
+  // const title= 'My first post';
+
+  const handleChange = (event)=>{
+    setTitle(event.target.value);
+    console.log(event.target.value);
+    console.log(title);
+  }
+
   return (
-    <RouterProvider router={router}/>    
+    <>
+    <RouterProvider router={router}/>  
+    <br/>
+    <ViewEditToggleExample title={title} onChangeHandler={(e)=>handleChange(e)} />
+    <br/>
+    <CollapseExpandExample list={list} />
+    <br/>
+
+    {/* <input type="text" value={title} onChange={(e)=>handleChange(e)}/> */}
+    </>
+      
   );
 }
 
