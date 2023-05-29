@@ -1,7 +1,6 @@
-import React from 'react'
-import { Outlet, useNavigate  } from 'react-router-dom';
-import List from '../components/prescription/List'
-import Navbar from '../components/header/Navbar';
+import React from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import List from '../components/prescription/List';
 import * as URLs from '../components/shared/URLs';
 
 function RootLayout() {
@@ -13,22 +12,21 @@ function RootLayout() {
     }
 
     return (
+
         <div className="container">
-            <Navbar />
-            <div className="container">
-                <div className='row'>
-                    <div className='col-sm-4'>
-                        <button onClick={showNewForm}>Create New</button>
-                    </div>
+            <div className='row'>
+                <div className='col-sm-4'>
+                    <button onClick={showNewForm}>Create New</button>
                 </div>
-                <div className="row">
-                    <List />
-                    <div className='col-sm-8'>
-                        <Outlet />
-                    </div>
+            </div>
+            <div className="row">
+                <List />
+                <div className='col-sm-8'>
+                    <Outlet />
                 </div>
             </div>
         </div>
+
     )
 }
 

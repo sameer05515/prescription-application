@@ -12,6 +12,7 @@ import NotFound from './components/shared/NotFound';
 import { useState } from 'react';
 import ViewEditToggleExample from './components/shared/hoc/ViewEditToggleExample';
 import CollapseExpandExample from './components/shared/hoc/CollapseExpandExample';
+import Navbar from './components/header/Navbar';
 
 
 const router = createBrowserRouter([
@@ -51,7 +52,8 @@ function App() {
   }
 
   return (
-    <>
+    <div className="container">
+      <Navbar />
       <RouterProvider router={router} />
       <br />
       <ViewEditToggleExample
@@ -64,7 +66,7 @@ function App() {
       <br />
 
       {/* <input type="text" value={title} onChange={(e)=>handleChange(e)}/> */}
-    </>
+    </div>
 
   );
 }
