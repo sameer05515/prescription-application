@@ -1,5 +1,5 @@
 import React from 'react'
-import withToggle from './ToggleHOC'
+import withToggle from './ToggleHOCFunctional'
 
 const ViewEditToggleExample = ({ toggle, toggleStatus, title, onChangeHandler }) => (
   <div>
