@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import withToggle from './ToggleHOCFunctional'
+import ToggleHOCFunctional from './ToggleHOCFunctional'
 
 function EditableInput(
     {
@@ -51,4 +51,4 @@ function EditableInput(
     )
 }
 
-export default withToggle(EditableInput)
+export default ToggleHOCFunctional(EditableInput)
