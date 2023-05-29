@@ -13,6 +13,7 @@ import { useState } from 'react';
 import ViewEditToggleExample from './components/shared/hoc/ViewEditToggleExample';
 import CollapseExpandExample from './components/shared/hoc/CollapseExpandExample';
 import Navbar from './components/header/Navbar';
+import EditableInput from './components/shared/hoc/EditableInput';
 
 
 const router = createBrowserRouter([
@@ -64,6 +65,16 @@ function App() {
       <br />
       <CollapseExpandExample list={list} />
       <br />
+
+      <EditableInput 
+      title={title} 
+      postToggleCallbackHandler={postToggle}
+        initialToggleStatus={false}/>
+        <br/>
+        <EditableInput 
+      title={title} 
+      postToggleCallbackHandler={postToggle}
+        initialToggleStatus={false}/>
 
       {/* <input type="text" value={title} onChange={(e)=>handleChange(e)}/> */}
     </div>
