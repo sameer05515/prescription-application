@@ -50,7 +50,7 @@ function App() {
 
   const postValueSaveHandler = (editedText) => {
     setTitle(editedText);
-    console.log(title);
+    console.log(`postValueSaveHandler : ${title}`);
   }
 
   const postToggle = (toggleStatus) => {
@@ -78,7 +78,6 @@ function App() {
         initialToggleStatus={false} />
       <br />
       <EditableInput
-        postValueSave={postValueSaveHandler}
         postToggleCallbackHandler={postToggle}
         initialToggleStatus={false} />
 

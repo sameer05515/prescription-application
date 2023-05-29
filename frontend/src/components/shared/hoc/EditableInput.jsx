@@ -6,7 +6,7 @@ function EditableInput(
         toggle,
         toggleStatus,
         title = 'Title not provided',
-        postValueSave,
+        postValueSave=()=>{console.warn('Post save handler not provided.')},
         postToggleCallbackHandler
     }
 ) {
@@ -24,7 +24,7 @@ function EditableInput(
         });
     };
 
-    const onSave = (postValueSave) => {
+    const onSave = () => {
         postValueSave(editedText);
         toggle(postToggleCallbackHandler);
     }
@@ -38,7 +38,7 @@ function EditableInput(
                         type="text"
                         value={editedText}
                         onChange={(e) => onChangeHandler(e)} />
-                    <button onClick={() => onSave(postValueSave)}>
+                    <button onClick={() => onSave()}>
                         Edit
                     </button>
                     <button onClick={() => toggle(postToggleCallbackHandler)}>
