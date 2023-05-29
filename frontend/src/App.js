@@ -46,11 +46,17 @@ function App() {
     console.log(title);
   }
 
+  const postToggle=()=>{
+    console.log('Toggle done')
+  }
+
   return (
     <>
     <RouterProvider router={router}/>  
     <br/>
-    <ViewEditToggleExample title={title} onChangeHandler={(e)=>handleChange(e)} />
+    <ViewEditToggleExample title={title} 
+    onChangeHandler={(e)=>handleChange(e)} 
+    postToggleCallbackHandler={postToggle}/>
     <br/>
     <CollapseExpandExample list={list} />
     <br/>

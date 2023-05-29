@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 const withToggle = (PassedComponent) => (props) =>{
   const [toggleStatus, setToggleStatus]= useState(false);
 
-  const toggle= ()=>{
+  const toggle= (postToggle)=>{
     setToggleStatus(!toggleStatus);
+    postToggle();
   }
 
   return (
