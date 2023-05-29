@@ -46,8 +46,8 @@ function App() {
     console.log(title);
   }
 
-  const postToggle = () => {
-    console.log('Toggle done')
+  const postToggle = (toggleStatus) => {
+    console.log(`Toggle done : ${toggleStatus} `)
   }
 
   return (

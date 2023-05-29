@@ -6,7 +6,7 @@ const withToggle = (PassedComponent) => (props) =>{
 
   const toggle= (postToggle)=>{
     setToggleStatus(!toggleStatus);
-    postToggle();
+    postToggle(toggleStatus);
   }
 
   return (
