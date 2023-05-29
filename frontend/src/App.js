@@ -48,6 +48,11 @@ function App() {
     console.log(title);
   }
 
+  const postValueSaveHandler = (editedText) => {
+    setTitle(editedText);
+    console.log(title);
+  }
+
   const postToggle = (toggleStatus) => {
     console.log(`Toggle done : ${toggleStatus} `)
   }
@@ -66,15 +71,16 @@ function App() {
       <CollapseExpandExample list={list} />
       <br />
 
-      <EditableInput 
-      title={title} 
-      postToggleCallbackHandler={postToggle}
-        initialToggleStatus={false}/>
-        <br/>
-        <EditableInput 
-      title={title} 
-      postToggleCallbackHandler={postToggle}
-        initialToggleStatus={false}/>
+      <EditableInput
+        title={title}
+        postToggleCallbackHandler={postToggle}
+        postValueSave={postValueSaveHandler}
+        initialToggleStatus={false} />
+      <br />
+      <EditableInput
+        postValueSave={postValueSaveHandler}
+        postToggleCallbackHandler={postToggle}
+        initialToggleStatus={false} />
 
       {/* <input type="text" value={title} onChange={(e)=>handleChange(e)}/> */}
     </div>

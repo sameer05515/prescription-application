@@ -1,20 +1,33 @@
 import React, { useState } from 'react'
 import withToggle from './ToggleHOCFunctional'
 
-function EditableInput({ toggle, toggleStatus, title, postValueChange, postToggleCallbackHandler }) {
+function EditableInput(
+    {
+        toggle,
+        toggleStatus,
+        title = 'Title not provided',
+        postValueSave,
+        postToggleCallbackHandler
+    }
+) {
 
     const [editedText, setEditedText] = useState(title);
-    
-    const onChangeHandler = (event) => {        
+
+    const onChangeHandler = (event) => {
         setEditedText(event.target.value);
         console.log(`editedText : ${editedText}`);
     }
 
     const onLabelClick = () => {
         toggle((toggleStatus) => {
-            console.log(`Edit mode should be open now: toggleStatus : ${toggleStatus}`);         
+            console.log(`Edit mode should be open now: toggleStatus : ${toggleStatus}`);
         });
     };
+
+    const onSave = (postValueSave) => {
+        postValueSave(editedText);
+        toggle(postToggleCallbackHandler);
+    }
 
 
     return (
@@ -25,12 +38,15 @@ function EditableInput({ toggle, toggleStatus, title, postValueChange, postToggl
                         type="text"
                         value={editedText}
                         onChange={(e) => onChangeHandler(e)} />
+                    <button onClick={() => onSave(postValueSave)}>
+                        Edit
+                    </button>
                     <button onClick={() => toggle(postToggleCallbackHandler)}>
                         Cancel
                     </button>
                 </>
-                : <p onClick={onLabelClick}>{title}</p>
-            }            
+                : <p style={{ borderStyle: 'ridge' }} onClick={onLabelClick}>{title}</p>
+            }
         </>
     )
 }
