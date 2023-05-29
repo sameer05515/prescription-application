@@ -30,13 +30,15 @@ function Add() {
   };
 
   return (
+    <>
+    
     <form>
             <div className="form-group">
                 <label htmlFor="prescriptionTitle">Prescription Title: </label>
                 <input type="text" 
                 name="prescriptionTitle" 
                 className="form-control" 
-                value={"My-Weakness-Removal-Tracker"}
+                value={prescription.prescriptionTitle}
                 onChange={handleChange} required/>
             </div>
             <div className="form-group">
@@ -44,7 +46,7 @@ function Add() {
                 <input type="text"
                  name="personName" 
                  className="form-control" 
-                 value={"Premendra Kumar"}
+                 value={prescription.personName}
                  onChange={handleChange} required/>
             </div>
             <div className="form-group">
@@ -52,7 +54,7 @@ function Add() {
                 <input type="email" 
                 name="personEmail" 
                 className="form-control" 
-                value={"premendra.bce05515@gmail.com"}
+                value={prescription.personEmail}
                 onChange={handleChange} required/>
             </div>
             <div className="form-group">
@@ -68,6 +70,8 @@ function Add() {
 
             <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
         </form>
+        {JSON.stringify(prescription)}
+        </>
   )
 }
 

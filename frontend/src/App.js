@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       { path: '', element: <div><p>Please select any item.</p></div> },
       { path: '/new', element: <Add /> },
-      { path: '/view', element: <Show /> },
+      { path: '/view/:id', element: <Show /> },
       { path: '/edit', element: <Edit /> },
       { path: '/delete', element: <Delete /> }
     ]

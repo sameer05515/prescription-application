@@ -1,8 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
+import * as URLs from '../shared/URLs';
 
 function List() {
     const presItemList = useSelector(state => state.pres.items);
+    const navigate = useNavigate();
     return (
         <div className="col-sm-4">
             <ul className="list-group">
@@ -12,13 +15,17 @@ function List() {
                         <li className="list-group-item" 
                         aria-current="true"
                         key={index}>
-                            My-Weakness-Removal-Tracker
-                            {/* <br /> Index {index} */}
+                            <p onClick={()=>navigate(`${URLs.VIEW_PRESCRIPTION}/${pres.id}`)}>
+                            {pres.prescriptionTitle}
+                            </p>
+                            
                         </li>
                     ))
                 }
 
             </ul>
+
+            {JSON.stringify(presItemList)}
         </div>
 
 
