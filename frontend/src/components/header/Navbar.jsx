@@ -1,5 +1,7 @@
 import React from 'react'
 
+import * as URLs from '../shared/URLs';
+
 function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
@@ -18,6 +20,9 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href={URLs.SHOW_PERSON_LIST}>Person List</a>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

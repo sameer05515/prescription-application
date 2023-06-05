@@ -15,6 +15,11 @@ import CollapseExpandExample from './components/shared/hoc/CollapseExpandExample
 import Navbar from './components/header/Navbar';
 import EditableInput from './components/shared/hoc/EditableInput';
 
+import * as URLs from './components/shared/URLs';
+import PersonList from './components/person/PersonList';
+import PersonNewForm from './components/person/PersonNewForm';
+
+
 
 const router = createBrowserRouter([
   {
@@ -26,6 +31,13 @@ const router = createBrowserRouter([
       { path: '/view/:id', element: <Show /> },
       { path: '/edit', element: <Edit /> },
       { path: '/delete', element: <Delete /> }
+
+    ]
+  },
+  {
+    path: URLs.SHOW_PERSON_LIST, element: <PersonList />,
+    children: [
+      { path: URLs.SHOW_NEW_PERSON_FORM, element: <PersonNewForm /> },
     ]
   },
   { path: '*', element: <NotFound /> }
@@ -62,7 +74,7 @@ function App() {
       <Navbar />
       <RouterProvider router={router} />
       <br />
-      <ViewEditToggleExample
+      {/* <ViewEditToggleExample
         title={title}
         onChangeHandler={(e) => handleChange(e)}
         postToggleCallbackHandler={postToggle}
@@ -79,7 +91,7 @@ function App() {
       <br />
       <EditableInput
         postToggleCallbackHandler={postToggle}
-        initialToggleStatus={false} />
+        initialToggleStatus={false} /> */}
 
       {/* <input type="text" value={title} onChange={(e)=>handleChange(e)}/> */}
     </div>
